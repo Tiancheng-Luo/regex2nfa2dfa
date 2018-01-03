@@ -27,10 +27,16 @@ public class ExpressionReader {
 		while(s.hasNext()) {	expressions.add (s.next());		}
 		
 		// Generate NFA using thompson algorithms with the Regular Expression
-		setNfa (RegularExpression.generateNFA (regular));		
+		setNfa (RegularExpression.generateNFA (regular));	
+		
+		String nfaDOT = new DFANFA2DOT(getNfa()).generateDOT();
+		System.out.println(nfaDOT);
 		
 		// Generate DFA using the previous NFA and the Subset Construction Algorithm
 		setDfa (RegularExpression.generateDFA (getNfa()));
+		
+		String dfaDOT = new DFANFA2DOT(getDfa()).generateDOT();
+		System.out.println(dfaDOT);
 		
 		// Validate all the string with the DFA
 		// yes = valid string

@@ -280,6 +280,10 @@ public class RegularExpression {
 
 				moveStates (symbol, state.getStates(), set1);
 				removeEpsilonTransition ();
+				
+				if(set2.isEmpty()) {
+					continue;
+				}
 
 				boolean found = false;
 				State st = null;
