@@ -1,0 +1,44 @@
+<html>
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Webgraphviz</title>
+  </head>
+<body>
+
+<style>
+  button { margin:4px; cursor:pointer; font-size: 70%; font-family; arial,sans-serif; margin-right: 5px }
+</style>
+
+<h2>Regex & NFA & DFA Visualizer</h2>
+Enter your regex into the Text Area:
+
+<br>
+<textarea id="graphviz_data" rows="2" cols="80" width="100%" wrap="off">
+digraph finite_state_machine {
+rankdir=LR;
+node [shape = doublecircle]; 2 3;
+node [shape = circle]2 -> 3 [ label = "e" ]
+2 -> 0 [ label = "e" ]
+0 -> 1 [ label = "a" ]
+1 -> 3 [ label = "e" ]
+1 -> 0 [ label = "e" ]
+}
+</textarea>
+<p>
+
+<button id="generate_btn" disabled style="font-size: 120%"><b>Loading...</b>
+<!-- The "update"  -->
+</button>
+
+<div id="graphviz_svg_div">
+  <!-- Target for dynamic svg generation -->
+</div>
+
+</body>
+
+<!-- Defer loading of javascript by placing these tags at the tail end of the document -->
+<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
+<script language="javascript" type="text/javascript" src="./viz.js"></script>
+<script language="javascript" type="text/javascript" src="./site.js"> </script>
+
+</html>
